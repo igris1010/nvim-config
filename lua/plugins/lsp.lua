@@ -1,0 +1,48 @@
+vim.pack.add{
+  { src = 'https://github.com/neovim/nvim-lspconfig' },
+}
+--[[
+vim.lsp.config['ccls'] = {
+  -- Command to start the language server.
+  cmd = { 'ccls' },
+
+  -- C and C++ filetypes.
+  filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+  root_dir = vim.fn.getcwd(),
+
+  -- Detect the project root.
+  root_markers = { '.ccls', 'compile_commands.json', 'compile_flags.txt', '.git' },
+
+  -- Server-specific settings.
+  init_options = {
+    cache = {
+      directory = '.ccls-cache',
+    },
+  },
+}
+]]
+vim.lsp.config['clangd'] = {
+  cmd = { 'clangd', '--background-index' },
+  filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+  root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
+}
+
+vim.lsp.config['luals'] = {
+        cmd = {'lua-language-server'},
+        filetypes = {'lua'},
+          root_dir = vim.fn.getcwd(),
+
+          -- Detect the project root.
+          root_markers = { {'.luarc.json'}, '.git' },
+  }
+vim.lsp.config.pylsp = {
+  cmd = { 'pylsp' },
+  filetypes = { 'python' },
+  root_markers = { '.git', 'pyproject.toml', 'setup.py' },
+}
+
+-- Enable the language server.
+-- vim.lsp.enable('ccls')
+vim.lsp.enable('clangd')
+vim.lsp.enable('luals')
+vim.lsp.enable('pylsp')

@@ -1,5 +1,6 @@
 vim.pack.add{
   { src = 'https://github.com/neovim/nvim-lspconfig' },
+    { src = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
 }
 --[[
 vim.lsp.config['ccls'] = {
@@ -21,10 +22,12 @@ vim.lsp.config['ccls'] = {
   },
 }
 ]]
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 vim.lsp.config['clangd'] = {
   cmd = { 'clangd', '--background-index' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
   root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
+  capabilities = capabilities
 }
 
 vim.lsp.config['lua_ls'] = {
@@ -33,11 +36,13 @@ vim.lsp.config['lua_ls'] = {
 
           -- Detect the project root.
           root_markers = { {'.luarc.json'}, '.git' },
+  capabilities = capabilities
   }
 vim.lsp.config.pylsp = {
   cmd = { 'pylsp' },
   filetypes = { 'python' },
   root_markers = { '.git', 'pyproject.toml', 'setup.py' },
+  capabilities = capabilities
 }
 
 -- Enable the language server.

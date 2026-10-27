@@ -1,4 +1,3 @@
-
 vim.pack.add({
     { src = "https://github.com/L3MON4D3/LuaSnip" },
 })
@@ -46,6 +45,11 @@ ls.add_snippets("cpp", {
             "    ios_base::sync_with_stdio(false);",
             "    cin.tie(NULL);",
             "",
+            "    #ifndef ONLINE_JUDGE",
+            '    freopen("input.txt", "r", stdin);',
+            '    freopen("output.txt", "w", stdout);',
+            "    #endif",
+            "",
             "    int t = 1;",
             "    cin >> t;",
             "    while (t--) {",
@@ -55,4 +59,3 @@ ls.add_snippets("cpp", {
         }),
     }),
 })
-

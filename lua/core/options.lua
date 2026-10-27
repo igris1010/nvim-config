@@ -53,3 +53,4 @@ vim.api.nvim_create_autocmd("CursorHold", {
   end,
 })
 ]]
+vim.opt.autoread = true

@@ -44,9 +44,16 @@ vim.lsp.config.pylsp = {
   root_markers = { '.git', 'pyproject.toml', 'setup.py' },
   capabilities = capabilities
 }
+vim.lsp.config.ts_ls = {
+  cmd = { 'typescript-language-server', '--stdio' },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' },
+  capabilities = capabilities
+}
 
 -- Enable the language server.
 -- vim.lsp.enable('ccls')
 vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('pylsp')
+vim.lsp.enable('ts_ls')
